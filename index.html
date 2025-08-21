@@ -32,22 +32,36 @@
     }
     .intro-text h1 {
       margin:0 0 .6rem 0;
-      font-size:clamp(2rem,3.5vw + 1rem,3.5rem);
+      margin-left: 30px;
+      font-size:7rem;
       font-weight:800;
       letter-spacing:2px;
       text-transform:uppercase;
       color:#3a3a8d;
     }
+    .intro-text h2 {
+      margin:0;
+      margin-left: 30px;
+      font-size: 1.5rem;
+      line-height:1.6;
+      max-width:60ch;
+      color:#7ca1f2;
+    }
     .intro-text p {
       margin:0;
-      font-size:clamp(1rem,.7vw + .85rem,1.15rem);
+      margin-left: 30px;
+      font-size: 1.5rem;
       line-height:1.6;
       max-width:60ch;
       color:#555;
     }
 /* Ensure text + image fit nicely */
-.intro img { max-height:70vh; }  /* scale within screen */
-.intro-text { max-width:50ch; }
+.intro img {
+  height: 90vh;          /* force full viewport height */
+  width: 100ch;
+  object-fit: cover;      /* cover the area fully */
+} 
+.intro-text {max-width:90ch; }
 
 
     /* Work grid */
@@ -121,6 +135,24 @@ body { perspective: 1000px; }
         display:flex; flex-wrap:wrap; gap:8px; justify-content:center}
       .contact h3{flex:1 0 100%; text-align:center}
     }
+
+    .degrees {
+    margin-top: 12px;
+  }
+  .degrees a {
+    display: inline-block;
+    margin-right: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #3a3a8d;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  .degrees a:hover {
+    background: #2c2c70;
+  }
   </style>
 </head>
 
@@ -130,13 +162,23 @@ body { perspective: 1000px; }
       <img src="Divya_med.jpg" alt="Portrait of Divya Nadikoppula">
       <div class="intro-text">
         <h1>Divya Nadikoppula</h1>
+        <h2>
+          Student . Electrical Engineer 
+        </h2>
         <p>
-          Illustrator and designer with a focus on editorial art, character design, 
-          and brand visuals. Passionate about creating compelling visual stories 
-          that connect with audiences.
-        </p>
-      </div>
-    </section>
+  Born and brought up in the coastal city of Visakhapatnam, Andhra Pradesh, India.  
+  An Electrical Engineer by profession with a collection of hobbies pursued as passions.  
+</p>
+
+    <!-- Degree icons with links -->
+    <div class="degrees">
+      <p>Earned a <strong>Bachelor of Technology in Electrical and Electronics Engineering</strong> from JNTU-K,  </p>
+      <a href="LINK_TO_BACHELORS_CERTIFICATE" target="_blank" title="View Bachelor's Degree">🎓 B.Tech</a>
+      <p>and went on to pursue a dual <strong>Master’s in Energy Technology</strong> at Uppsala University (Sweden) and Grenoble INP – ENSE3 (France).</p>
+      <a href="LINK_TO_MASTERS_CERTIFICATE" target="_blank" title="View Master's Degree">🎓 M.Sc</a>
+    </div>
+  </div>
+</section>
 
     <section class="work-contact">
       <h2 id="work-title">Work</h2>
