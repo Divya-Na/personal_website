@@ -24,8 +24,12 @@
 
     /* Intro section fills the viewport */
 .intro {
-  min-height:100vh;              /* take full page height */
-  justify-content:center;        /* center vertically */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  margin: 0;
+  padding: 0 40px;
 }
  .intro-text {
       flex:1;
@@ -52,16 +56,39 @@
       margin-left: 30px;
       font-size: 1.5rem;
       line-height:1.6;
-      max-width:60ch;
+      max-width:80ch;
       color:#555;
     }
-/* Ensure text + image fit nicely */
-.intro img {
-  height: 90vh;          /* force full viewport height */
-  width: 100ch;
-  object-fit: cover;      /* cover the area fully */
-} 
-.intro-text {max-width:90ch; }
+.profile-pic {
+  height: 90vh;
+  width: 90ch;
+  object-fit: cover;
+  margin-left: 0;
+  padding: 0;
+}
+
+/* Spacing for degrees */
+.degree-text {
+  margin-top: 20px;
+        margin:0;
+      margin-left: 30px;
+      font-size: 1.5rem;
+      line-height:1.6;
+      max-width:80ch;
+      color:#555;
+}
+
+/* Inline icon links */
+.degree-link {
+  display: inline-block;
+  margin-left: 6px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+.degree-link:hover {
+  transform: scale(1.2);
+}
 
 
     /* Work grid */
@@ -159,24 +186,26 @@ body { perspective: 1000px; }
 <body>
 
     <section class="intro">
-      <img src="Divya_med.jpg" alt="Portrait of Divya Nadikoppula">
-      <div class="intro-text">
-        <h1>Divya Nadikoppula</h1>
-        <h2>
-          Student . Electrical Engineer 
-        </h2>
-        <p>
-  Born and brought up in the coastal city of Visakhapatnam, Andhra Pradesh, India.  
-  An Electrical Engineer by profession with a collection of hobbies pursued as passions.  
-</p>
+  <img src="Divya_med.jpg" alt="Portrait of Divya Nadikoppula" class="profile-pic">
+  <div class="intro-text">
+    <h1>DIVYA NADIKOPPULA</h1>
+    <h2 class="subtitle">Student · Electrical Engineer</h2>
+    <p>
+      Born and brought up in the coastal city of Visakhapatnam, Andhra Pradesh, India.  
+      An Electrical Engineer by profession with a collection of hobbies pursued as passions.
+    </p>
+<br><br>
+    <p class="degree-text">
+      Earned a <strong>Bachelor's Degree in Electrical and Electronics Engineering</strong> 
+      from JNTU-K 
+      <a href="LINK_TO_BACHELORS_CERTIFICATE" target="_blank" class="degree-link">🎓</a>,
+    </p>
 
-    <!-- Degree icons with links -->
-    <div class="degrees">
-      <p>Earned a <strong>Bachelor of Technology in Electrical and Electronics Engineering</strong> from JNTU-K,  </p>
-      <a href="LINK_TO_BACHELORS_CERTIFICATE" target="_blank" title="View Bachelor's Degree">🎓 B.Tech</a>
-      <p>and went on to pursue a dual <strong>Master’s in Energy Technology</strong> at Uppsala University (Sweden) and Grenoble INP – ENSE3 (France).</p>
-      <a href="LINK_TO_MASTERS_CERTIFICATE" target="_blank" title="View Master's Degree">🎓 M.Sc</a>
-    </div>
+    <p class="degree-text">
+      and went on to pursue a dual <strong>Master’s in Energy Technology</strong> 
+      at Uppsala University (Sweden) and Grenoble INP – ENSE3 (France) 
+      <a href="LINK_TO_MASTERS_CERTIFICATE" target="_blank" class="degree-link">🎓</a>.
+    </p>
   </div>
 </section>
 
