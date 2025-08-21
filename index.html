@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Divya Nadikoppula — Portfolio</title>
   <style>
+    section {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+  box-sizing:border-box;
+}
+
     body {
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -59,7 +68,39 @@
     .card img { width:100%; border-radius:8px; }
     .card .title { font-weight:700; margin:.55rem 0 .25rem }
     .card .desc { margin:0; color:#666; font-size:.95rem }
+/* 3D context for the roll effect */
+body { perspective: 1000px; }
 
+/* Base hidden state (roll out) */
+.work-contact {
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  background:#fff5f5;
+  transform:rotateX(-90deg) translateZ(0);
+  transform-origin: top;
+  opacity:0;
+  backface-visibility:hidden;
+  will-change: transform, opacity;
+  transition: transform 700ms cubic-bezier(.2,.7,.2,1),
+              opacity 700ms cubic-bezier(.2,.7,.2,1);
+}
+
+/* Roll in when visible */
+.work-contact.show {
+  transform:rotateX(0deg) translateZ(0);
+  opacity:1;
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce){
+  .work-contact,
+  .work-contact.show,
+  .work-contact.hide {
+    transform:none !important;
+    opacity:1 !important;
+    transition:none !important;
+  }
+}
     /* Contact fixed panel */
 .contact {
   position:static;               /* no fixed position */
@@ -82,8 +123,9 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
+
     <section class="intro">
       <img src="Divya_med.jpg" alt="Portrait of Divya Nadikoppula">
       <div class="intro-text">
@@ -96,7 +138,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="work-title">
+    <section class="work-contact">
       <h2 id="work-title">Work</h2>
       <div class="work-wrap">
         <div class="grid">
@@ -124,7 +166,7 @@
         </div>
       </div>
     </section>
-  </div>
+ 
 
 <!-- Fixed side contact panel -->
   <aside class="contact" aria-labelledby="contact-title">
@@ -134,6 +176,27 @@
     <a class="colr"  href="https://github.com/divyandk" target="_blank" rel="noopener">GitHub</a>
     <a class="colr"  href="tel:+33783815922" rel="noopener">Phone</a>
   </aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const workSection = document.querySelector('.work-contact');
+  if (!workSection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio >= 0.25) {
+        workSection.classList.add('show');      // roll in
+        
+      } else {
+        workSection.classList.remove('show');   // roll out
+      }
+    });
+  }, { threshold: [0, 0.25, 0.75, 1], rootMargin: '0px 0px -10% 0px' });
+
+  observer.observe(workSection);
+});
+</script>
+
 
 </body>
 </html>
