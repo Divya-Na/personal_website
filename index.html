@@ -5,183 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Divya Nadikoppula — Portfolio</title>
   <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #fafafa;
-            color: #333;
-        }
+    body {
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:#fafafa;
+      color:#222;
+    }
+    .wrap { max-width:1100px; margin:0 auto; padding:clamp(16px,3vw,40px); }
 
-        .carousel {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            width: 100vw;
-            height: 100vh;
-        }
+    /* Intro section fills the viewport */
+.intro {
+  min-height:100vh;              /* take full page height */
+  justify-content:center;        /* center vertically */
+}
+ .intro-text {
+      flex:1;
+    }
+    .intro-text h1 {
+      margin:0 0 .6rem 0;
+      font-size:clamp(2rem,3.5vw + 1rem,3.5rem);
+      font-weight:800;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#3a3a8d;
+    }
+    .intro-text p {
+      margin:0;
+      font-size:clamp(1rem,.7vw + .85rem,1.15rem);
+      line-height:1.6;
+      max-width:60ch;
+      color:#555;
+    }
+/* Ensure text + image fit nicely */
+.intro img { max-height:70vh; }  /* scale within screen */
+.intro-text { max-width:50ch; }
 
-        .carousel-section {
-            flex: 0 0 100%;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 50px;
-            box-sizing: border-box;
-        }
 
-    /* Slide 1 - Introduction */
-        #slide1 {
-            background-color: #f5f5ff;
-        }
-
-        #slide1 .content {
-            max-width: 50%;
-        }
-
-        #slide1 img {
-            width: 40%;
-            border-radius: 10px;
-        }
-
-        #slide1 h1 {
-            font-size: 3rem;
-            color: #3a3a8d;
-        }
-
-        #slide1 p {
-            font-size: 1.5rem;
-            margin-top: 20px;
-            color: #595959;
-        }
-
-        /* Slide 2 - Work Section */
-        #slide2 {
-            background-color: #fff5f5;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        #slide2 h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #c95a5a;
-        }
-
-        #slide2 img {
-            width: 60%;
-            margin: 20px 0;
-            border-radius: 10px;
-        }
-    /* Work grid linking to subfolders */
-    .section{ margin-top:32px }
-    .section h2{ font-size:1.6rem; margin:0 0 .75rem; color:var(--accent2) }
-    .grid{
-      display:grid; gap:clamp(12px,2vw,24px);
+    /* Work grid */
+    .section { margin-top:28px }
+    .section h2 { margin:0 0 12px 0; font-size:1.6rem; color:#c95a5a }
+    .work-wrap { display:flex; justify-content:center }
+    .grid {
+      width:min(980px,100%);
+      display:grid; gap:clamp(14px,2vw,22px);
       grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
     }
-    .card{ background:#fff; border-radius:12px; padding:12px; border:1px solid #e7e7e7 }
-    .card a{ display:block; text-decoration:none; color:inherit }
-    .card img{ width:100%; height:auto; border-radius:8px; display:block }
-    .card .title{ font-weight:700; margin:.5rem 0 .25rem }
-    .card .desc{ color:var(--muted); font-size:.95rem; margin:0 }
-
-    /* Fixed contact panel */
-    .contact{
-      position:fixed; right:16px; top:50%; transform:translateY(-50%);
-      background:var(--panel); color:var(--panel-fg); border-radius:12px; padding:14px 16px; width:220px;
+    .card {
+      background:#fff; border:1px solid #e7e7e7;
+      border-radius:12px; padding:12px;
+      box-shadow:0 1px 4px rgba(0,0,0,.04);
     }
-    .contact h3{ margin:0 0 .5rem; font-size:1rem; opacity:.9 }
-    .contact a{
-      display:block; margin:6px 0; padding:8px 10px; border-radius:8px;
-      background:#2f2f2f; color:#fff; text-decoration:none; font-weight:600; font-size:.95rem;
-    }
-    .contact a.email{ background:var(--accent3) }
-    .contact a.linkedin{ background:var(--accent1) }
-    .contact a.github{ background:#24292e }
-    .contact a.phone{ background:#666 }
+    .card a { display:block; color:inherit; text-decoration:none }
+    .card img { width:100%; border-radius:8px; }
+    .card .title { font-weight:700; margin:.55rem 0 .25rem }
+    .card .desc { margin:0; color:#666; font-size:.95rem }
 
-    /* Responsive: move contact panel to bottom on narrow screens */
-    @media (max-width:900px){
-      .wrap{ display:block }
-      .contact{
-        position:static; transform:none; width:auto; margin:16px;
-        display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
-      }
-      .contact h3{ width:100%; text-align:center }
-      .hero{ flex-direction:column; text-align:center }
-      .hero img{ width:min(80%,520px) }
+    /* Contact fixed panel */
+.contact {
+  position:static;               /* no fixed position */
+  margin:40px auto;
+  max-width:600px;
+  text-align:center;
+}
+.contact a { display:inline-block; margin:6px; }
+
+    .contact a:hover { background:#7c98c7 }
+    .contact .colr{ background:#fafafa }
+
+
+    @media(max-width:900px){
+      .intro{flex-direction:column;text-align:center}
+      .intro img{width:min(80%,420px)}
+      .contact{left:12px; right:12px; bottom:12px; top:auto; transform:none;
+        display:flex; flex-wrap:wrap; gap:8px; justify-content:center}
+      .contact h3{flex:1 0 100%; text-align:center}
     }
   </style>
 </head>
 <body>
-<!-- Carousel Sections -->
-<div class="carousel" id="carousel">
-    <!-- Slide 1: Introduction -->
-    <div class="carousel-section" id="slide1">
-        <div class="content">
-            <h1> I am Divya Nadikoppula</h1>
-            <p>
-                
-            </p>
-        </div>
-        <img src="Divya_med.jpg" alt="Divya's Picture">
-    </div>
+  <div class="wrap">
+    <section class="intro">
+      <img src="Divya_med.jpg" alt="Portrait of Divya Nadikoppula">
+      <div class="intro-text">
+        <h1>Divya Nadikoppula</h1>
+        <p>
+          Illustrator and designer with a focus on editorial art, character design, 
+          and brand visuals. Passionate about creating compelling visual stories 
+          that connect with audiences.
+        </p>
+      </div>
+    </section>
 
-      <!-- Work folders (each item links to a subfolder page) -->
-        <section class="carousel-section" aria-labelledby="work-title">
-        <h2 id="work-title">Work</h2>
+    <section class="section" aria-labelledby="work-title">
+      <h2 id="work-title">Work</h2>
+      <div class="work-wrap">
         <div class="grid">
           <div class="card">
             <a href="work/illustration/index.html">
-              <img src="work/illustration/cover.jpg" alt="Illustration gallery cover" loading="lazy">
+              <img src="work/illustration/cover.jpg" alt="Illustration gallery cover">
               <div class="title">Illustration</div>
               <p class="desc">Editorial and character pieces.</p>
             </a>
           </div>
           <div class="card">
             <a href="work/branding/index.html">
-              <img src="work/branding/cover.jpg" alt="Branding gallery cover" loading="lazy">
+              <img src="work/branding/cover.jpg" alt="Branding gallery cover">
               <div class="title">Branding</div>
               <p class="desc">Logos and visual systems.</p>
             </a>
           </div>
           <div class="card">
             <a href="work/sketches/index.html">
-              <img src="work/sketches/cover.jpg" alt="Sketches gallery cover" loading="lazy">
+              <img src="work/sketches/cover.jpg" alt="Sketches gallery cover">
               <div class="title">Sketchbook</div>
               <p class="desc">Explorations and studies.</p>
             </a>
           </div>
-          <!-- Add more cards pointing to other subfolders as needed -->
         </div>
-      </section>
-    </main>
-
-    <!-- Fixed side contact panel -->
-    <aside class="contact" aria-labelledby="contact-title">
-      <h3 id="contact-title">Get in touch</h3>
-      <a class="email"   href="mailto:nadikoppula.divya@gmail.com" rel="noopener">Email</a>
-      <a class="linkedin" href="https://linkedin.com/in/divyandk" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="github"  href="https://github.com/divyandk" target="_blank" rel="noopener">GitHub</a>
-      <a class="phone"   href="tel:+33783815922" rel="noopener">Phone</a>
-    </aside>
+      </div>
+    </section>
   </div>
 
-  <!-- Navigation Buttons -->
-<div class="nav-buttons">
-    <button onclick="scrollToSlide(0)">Introduction</button>
-    <button onclick="scrollToSlide(1)">Work</button>
-</div>
+<!-- Fixed side contact panel -->
+  <aside class="contact" aria-labelledby="contact-title">
+    <h3 id="contact-title">Get in touch</h3>
+    <a class="colr" href="mailto:nadikoppula.divya@gmail.com" rel="noopener">Email</a>
+    <a class="colr"  href="https://linkedin.com/in/divyandk" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="colr"  href="https://github.com/divyandk" target="_blank" rel="noopener">GitHub</a>
+    <a class="colr"  href="tel:+33783815922" rel="noopener">Phone</a>
+  </aside>
 
-<script>
-    function scrollToSlide(index) {
-        const carousel = document.getElementById('carousel');
-        const sectionWidth = window.innerWidth;
-        carousel.scrollTo({ left: index * sectionWidth, behavior: 'smooth' });
-    }
-</script>
 </body>
 </html>
