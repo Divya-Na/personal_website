@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divya Nadikoppula — Portfolio</title>
-    <style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Divya Nadikoppula — Portfolio</title>
+  <style>
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
@@ -32,7 +32,7 @@
             box-sizing: border-box;
         }
 
-        /* Slide 1 - Introduction */
+    /* Slide 1 - Introduction */
         #slide1 {
             background-color: #f5f5ff;
         }
@@ -75,61 +75,48 @@
             margin: 20px 0;
             border-radius: 10px;
         }
+    /* Work grid linking to subfolders */
+    .section{ margin-top:32px }
+    .section h2{ font-size:1.6rem; margin:0 0 .75rem; color:var(--accent2) }
+    .grid{
+      display:grid; gap:clamp(12px,2vw,24px);
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .card{ background:#fff; border-radius:12px; padding:12px; border:1px solid #e7e7e7 }
+    .card a{ display:block; text-decoration:none; color:inherit }
+    .card img{ width:100%; height:auto; border-radius:8px; display:block }
+    .card .title{ font-weight:700; margin:.5rem 0 .25rem }
+    .card .desc{ color:var(--muted); font-size:.95rem; margin:0 }
 
-        /* Slide 3 - Contact Section */
-        #slide3 {
-            background-color: #f5fff5;
-            text-align: center;
-        }
+    /* Fixed contact panel */
+    .contact{
+      position:fixed; right:16px; top:50%; transform:translateY(-50%);
+      background:var(--panel); color:var(--panel-fg); border-radius:12px; padding:14px 16px; width:220px;
+    }
+    .contact h3{ margin:0 0 .5rem; font-size:1rem; opacity:.9 }
+    .contact a{
+      display:block; margin:6px 0; padding:8px 10px; border-radius:8px;
+      background:#2f2f2f; color:#fff; text-decoration:none; font-weight:600; font-size:.95rem;
+    }
+    .contact a.email{ background:var(--accent3) }
+    .contact a.linkedin{ background:var(--accent1) }
+    .contact a.github{ background:#24292e }
+    .contact a.phone{ background:#666 }
 
-        #slide3 h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #5ac95a;
-        }
-
-        #slide3 a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #5ac95a;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-        }
-
-        #slide3 a:hover {
-            background-color: #48a848;
-        }
-
-        /* Navigation Buttons */
-        .nav-buttons {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .nav-buttons button {
-            padding: 10px 15px;
-            border: none;
-            background-color: #888;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .nav-buttons button:hover {
-            background-color: #555;
-        }
-    </style>
+    /* Responsive: move contact panel to bottom on narrow screens */
+    @media (max-width:900px){
+      .wrap{ display:block }
+      .contact{
+        position:static; transform:none; width:auto; margin:16px;
+        display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+      }
+      .contact h3{ width:100%; text-align:center }
+      .hero{ flex-direction:column; text-align:center }
+      .hero img{ width:min(80%,520px) }
+    }
+  </style>
 </head>
 <body>
-
 <!-- Carousel Sections -->
 <div class="carousel" id="carousel">
     <!-- Slide 1: Introduction -->
@@ -143,35 +130,50 @@
         <img src="Divya_med.jpg" alt="Divya's Picture">
     </div>
 
-    <!-- Slide 2: Work Section -->
-    <div class="carousel-section" id="slide2">
-        <h1>My Work</h1>
-        <img src="work-sample.jpg" alt="Work Sample">
-    </div>
+      <!-- Work folders (each item links to a subfolder page) -->
+        <section class="carousel-section" aria-labelledby="work-title">
+        <h2 id="work-title">Work</h2>
+        <div class="grid">
+          <div class="card">
+            <a href="work/illustration/index.html">
+              <img src="work/illustration/cover.jpg" alt="Illustration gallery cover" loading="lazy">
+              <div class="title">Illustration</div>
+              <p class="desc">Editorial and character pieces.</p>
+            </a>
+          </div>
+          <div class="card">
+            <a href="work/branding/index.html">
+              <img src="work/branding/cover.jpg" alt="Branding gallery cover" loading="lazy">
+              <div class="title">Branding</div>
+              <p class="desc">Logos and visual systems.</p>
+            </a>
+          </div>
+          <div class="card">
+            <a href="work/sketches/index.html">
+              <img src="work/sketches/cover.jpg" alt="Sketches gallery cover" loading="lazy">
+              <div class="title">Sketchbook</div>
+              <p class="desc">Explorations and studies.</p>
+            </a>
+          </div>
+          <!-- Add more cards pointing to other subfolders as needed -->
+        </div>
+      </section>
+    </main>
 
-<!-- Footer Contact Section -->
-<footer style="
-  text-align:center;
-  padding:1.2rem;
-  background:#222;
-  color:#fff;
-  font-size:0.95rem;
-  margin-top:auto;">
-  <p>Get in touch:</p>
-  <p>
-    <a href="mailto:nadikoppula.divya@gmail.com" style="color:#5ac95a; text-decoration:none; margin:0 10px;" rel="noopener">Email</a>
-    <a href="https://linkedin.com/in/divyandk" style="color:#3a3a8d; text-decoration:none; margin:0 10px;" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/divyandk" style="color:#c95a5a; text-decoration:none; margin:0 10px;" target="_blank" rel="noopener">GitHub</a>
-    <a href="tel:+33783815922" style="color:#888; text-decoration:none; margin:0 10px;" rel="noopener">Phone</a>
-  </p>
-  <p style="font-size:0.8rem; color:#bbb;">© 2025 Divya Nadikoppula</p>
-</footer>
+    <!-- Fixed side contact panel -->
+    <aside class="contact" aria-labelledby="contact-title">
+      <h3 id="contact-title">Get in touch</h3>
+      <a class="email"   href="mailto:nadikoppula.divya@gmail.com" rel="noopener">Email</a>
+      <a class="linkedin" href="https://linkedin.com/in/divyandk" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="github"  href="https://github.com/divyandk" target="_blank" rel="noopener">GitHub</a>
+      <a class="phone"   href="tel:+33783815922" rel="noopener">Phone</a>
+    </aside>
+  </div>
 
-<!-- Navigation Buttons -->
+  <!-- Navigation Buttons -->
 <div class="nav-buttons">
     <button onclick="scrollToSlide(0)">Introduction</button>
     <button onclick="scrollToSlide(1)">Work</button>
-    <button onclick="scrollToSlide(2)">Contact</button>
 </div>
 
 <script>
@@ -181,6 +183,5 @@
         carousel.scrollTo({ left: index * sectionWidth, behavior: 'smooth' });
     }
 </script>
-
 </body>
 </html>
